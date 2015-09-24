@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :categories, only: [:show]
   resources :pages, only: [:show]
 
   namespace :admin do
     resources :pages
+    resources :categories
   end
 
   Page.where.not("slug", nil).all.each do |page|
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'admin/pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
