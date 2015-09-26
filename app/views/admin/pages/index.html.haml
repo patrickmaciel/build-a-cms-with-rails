@@ -23,3 +23,5 @@
 %br
 
 = link_to 'New Page', new_admin_page_path
+-Type.all.each do |type|
+  = link_to "New #{type.name}", new_admin_page_path(type: type.name), class: "btn btn-default"
