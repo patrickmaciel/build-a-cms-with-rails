@@ -1,0 +1,8 @@
+%h1= @page.title
+
+%p
+  %em= time_ago_in_words @page.created_at
+
+=image_tag @page.url, title: @page.caption
+
+= simple_format @page.body
